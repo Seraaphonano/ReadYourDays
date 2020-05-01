@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".FirstFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:id="@+id/display_year_layout"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/display_year"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            tools:igore = "RtSymmetry"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/display_month"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:layout_toRightOf="@+id/display_year"
+            tools:igore = "RelativeOverlap"/>
+
+    </RelativeLayout>
+
+
+
+    <com.haibin.calendarview.CalendarLayout
+        android:id="@+id/calendarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:calendar_content_view_id="@+id/recyclerView"
+        app:calendar_show_mode="only_month_view"
+        app:default_status="expand">
+
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/gCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:calendar_padding="15dp"
+            app:current_day_lunar_text_color="#333333"
+            app:current_day_text_color="@color/colorAccent"
+            app:current_month_lunar_text_color="#333333"
+            app:current_month_text_color="#333333"
+            app:day_text_size="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:max_year="2021"
+            app:min_year="1949"
+            app:scheme_text_color="#333333"
+            app:scheme_lunar_text_color="#333333"
+
+            app:other_month_text_color="#e1e1e1"
+            app:selected_lunar_text_color="#ffffff"
+            app:selected_text_color="#ffffff"
+            app:selected_theme_color="@color/colorPrimaryDark"
+            app:week_background="@color/colorAccent"
+            app:week_text_color="#ffffff"
+            app:scheme_text="Holiday"
+            app:week_text_size="18dp"
+            app:week_view_scrollable="true"
+            app:year_view_day_text_color="#333333"
+            app:month_view="com.example.readyourdays.CalenMonthView"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:id="@+id/linearSnack">
+
+            <!--floating action button-->
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/diary_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/lightYellow"
+                android:visibility="invisible"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.578"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.702"
+                app:srcCompat="@drawable/ic_diary"
+                app:tint="#ffffff"
+                tools:ignore="VectorDrawableCompat" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/today_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/lightYellow"
+                android:visibility="invisible"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.787"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.265"
+                app:srcCompat="@drawable/ic_today_white_24dp"
+                app:tint="#ffffff"
+                tools:ignore="VectorDrawableCompat" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/show_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/colorAccent"
+
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.915"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.668"
+                app:srcCompat="@drawable/ic_plus_sign"
+                app:tint="#ffffff"
+                tools:ignore="VectorDrawableCompat" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/dayBefore_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/lightYellow"
+                android:visibility="invisible"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.644"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.456"
+                app:srcCompat="@drawable/ic_count_down"
+                app:tint="#ffffff"
+                tools:ignore="VectorDrawableCompat" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/dayAfter_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/lightYellow"
+                android:visibility="invisible"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.98"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.198"
+                app:srcCompat="@drawable/ic_notifications_white_24dp"
+                app:tint="#ffffff"
+
+                tools:ignore="VectorDrawableCompat" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.haibin.calendarview.CalendarLayout>
+
+</LinearLayout>
