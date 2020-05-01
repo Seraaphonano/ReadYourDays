@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_second"/>
     <fragment
         android:id="@+id/navigation_diary"
-        android:name="com.example.readyourdays.SecondFragment"
+        android:name="com.example.readyourdays.ThirdFragment"
         android:label="@string/title_diary"
-        tools:layout="@layout/fragment_second"/>
+        tools:layout="@layout/fragment_third" />
 </navigation>
