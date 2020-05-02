@@ -1,41 +1,30 @@
-package com.example.readyourdays;
+package com.example.readyourdays.HomeFragment;
 
-import android.animation.TimeInterpolator;
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Interpolator;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.OvershootInterpolator;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.readyourdays.Base.BaseFragment;
+import com.example.readyourdays.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
 
 import java.time.Month;
-import java.time.Year;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +37,7 @@ public class FirstFragment extends BaseFragment implements
         private TextView displayYear;  //Year on top
         private TextView displayMonth; // Month on top
         private CalendarView calendarView; //calendar isself
+        private TextView lunarTextView;
         private RelativeLayout relativeLayout;
         private Calendar calendar;
         private int year; // to shold year numner
@@ -133,20 +123,27 @@ public class FirstFragment extends BaseFragment implements
         toCome = view.findViewById(R.id.dayAfter_btn);
         diary = view.findViewById(R.id.diary_btn);
         showBtn = view.findViewById(R.id.show_btn);
-
+        lunarTextView = view.findViewById(R.id.lunar_textview);
         calendarView.setOnYearChangeListener(this);
         calendarView.setOnCalendarSelectListener(this);
         calendar = calendarView.getSelectedCalendar();
+
         year=calendarView.getCurYear();
         month =  Month.of(calendarView.getCurMonth());
         lunaMonth = Month.of(calendar.getLunarCalendar().getMonth());
         lunaDay = calendar.getLunarCalendar().getDay();
+        String sLunaMonth = lunaMonth.toString();
+        String slunaMonthDisplay = sLunaMonth.substring(0,1) + sLunaMonth.substring(1).toLowerCase();
+        String lunaInfo = String.format("%s %d",  slunaMonthDisplay, lunaDay);
+        lunarTextView.setText(lunaInfo);
         displayYear.setText(String.valueOf(calendarView.getCurYear()));
         String sMonth = month.toString();
         displayMonth.setText(sMonth.substring(0,1) + sMonth.substring(1).toLowerCase());
         displayYear.setOnClickListener(this);
         showBtn.setOnClickListener(this);
         today.setOnClickListener(this);
+        countDown.setOnClickListener(this);
+        toCome.setOnClickListener(this);
         openAnimation = AnimationUtils.loadAnimation(mcontext, R.anim.fab_open);
         closeAnimation = AnimationUtils.loadAnimation(mcontext, R.anim.fab_close);
         isOpenning = false;
@@ -156,7 +153,7 @@ public class FirstFragment extends BaseFragment implements
 
         private void openMenu(View v){
 
-           showBtn.animate().setInterpolator(interpolator).rotation(-90).setDuration(300).start();
+           showBtn.animate().setInterpolator(interpolator).rotation(-144).setDuration(300).start();
             toCome.startAnimation(openAnimation);
             today.startAnimation(openAnimation);
             diary.startAnimation(openAnimation);
@@ -203,11 +200,14 @@ public class FirstFragment extends BaseFragment implements
                 break;
             case R.id.today_btn:
                 calendarView.scrollToCurrent();
-
                 break;
             case R.id.dayAfter_btn:
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_navigation_home_to_createMemoryFragment);
                 break;
             case R.id.dayBefore_btn:
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_navigation_home_to_createMemoryFragment);
                 break;
 
 
@@ -245,14 +245,11 @@ public class FirstFragment extends BaseFragment implements
         String sMonth = month.toString();
         String sLunaMonth = lunaMonth.toString();
         String slunaMonthDisplay = sLunaMonth.substring(0,1) + sLunaMonth.substring(1).toLowerCase();
-        String lunaInfo = String.format("Lunar date: %s %d",  slunaMonthDisplay, lunaDay);
+        String lunaInfo = String.format("%s %d",  slunaMonthDisplay, lunaDay);
         displayMonth.setText(sMonth.substring(0,1) + sMonth.substring(1).toLowerCase());
+        lunarTextView.setText(lunaInfo);
         //costumize snackbar for displaying lunar dates in English
-        Snackbar snackbar;
-        snackbar=Snackbar.make(this.getView(), lunaInfo , Snackbar.LENGTH_LONG);
-        snackbar.setBackgroundTint(Color.rgb(104,174,167)); //easier than using snackbarview.setBackgroudColor
 
-        snackbar.show();
     }
 
 

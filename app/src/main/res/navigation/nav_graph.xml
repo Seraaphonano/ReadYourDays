@@ -7,17 +7,30 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.readyourdays.FirstFragment"
+        android:name="com.example.readyourdays.HomeFragment.FirstFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_first"/>
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_navigation_home_to_createMemoryFragment"
+            app:destination="@id/createMemoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_memory"
-        android:name="com.example.readyourdays.SecondFragment"
+        android:name="com.example.readyourdays.MemoryFragment.SecondFragment"
         android:label="@string/title_memory"
-        tools:layout="@layout/fragment_second"/>
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_navigation_memory_to_createMemoryFragment"
+            app:destination="@id/createMemoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_diary"
-        android:name="com.example.readyourdays.ThirdFragment"
+        android:name="com.example.readyourdays.DiaryFragment.ThirdFragment"
         android:label="@string/title_diary"
         tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/createMemoryFragment"
+        android:name="com.example.readyourdays.MemoryFragment.CreateMemoryFragment"
+        android:label="fragment_create_memory"
+        tools:layout="@layout/fragment_create_memory" />
 </navigation>

@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".SecondFragment">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:id="@+id/display_memory_layout"
-        android:background="@color/colorAccent">
+    tools:context=".MemoryFragment.SecondFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/display_year"
-            android:gravity="center_vertical"
-            android:paddingLeft="16dp"
-            android:text="@string/title_memory"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            tools:igore = "RtSymmetry"/>
+    <include
+        android:id="@+id/include"
+        layout="@layout/memo_content" />
 
-
-    </RelativeLayout>
-
-
-
-
-    <androidx.recyclerview.widget.RecyclerView
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_mem_btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/colorAccent"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.901"
+        app:srcCompat="@drawable/ic_plus_sign"
+        app:tint="#ffffff"
+        tools:ignore="VectorDrawableCompat" />
 
 
-        />
-
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

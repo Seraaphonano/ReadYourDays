@@ -1,4 +1,4 @@
-package com.example.readyourdays;
+package com.example.readyourdays.Base;
 
 import android.content.Context;
 import android.graphics.BlurMaskFilter;
