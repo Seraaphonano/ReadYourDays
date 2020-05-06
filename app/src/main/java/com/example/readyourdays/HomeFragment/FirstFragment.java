@@ -13,11 +13,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.readyourdays.Base.BaseFragment;
+import com.example.readyourdays.MemoryFragment.CreateMemoryFragment;
 import com.example.readyourdays.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.haibin.calendarview.Calendar;
@@ -52,7 +55,7 @@ public class FirstFragment extends BaseFragment implements
         private Animation openAnimation , closeAnimation;
         private OvershootInterpolator interpolator = new OvershootInterpolator();
         private Context mcontext;
-
+        private Fragment newMemoryFragment = new CreateMemoryFragment();
 
 
 
@@ -127,6 +130,7 @@ public class FirstFragment extends BaseFragment implements
         calendarView.setOnYearChangeListener(this);
         calendarView.setOnCalendarSelectListener(this);
         calendar = calendarView.getSelectedCalendar();
+
 
         year=calendarView.getCurYear();
         month =  Month.of(calendarView.getCurMonth());
@@ -208,6 +212,7 @@ public class FirstFragment extends BaseFragment implements
             case R.id.dayBefore_btn:
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_navigation_home_to_createMemoryFragment);
+
                 break;
 
 

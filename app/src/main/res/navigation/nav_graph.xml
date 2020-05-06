@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/navigation_home"
+
+    >
+
+    <action android:id="@+id/action_global_mainFragment"
+        app:destination="@id/navigation_home"/>
 
     <fragment
         android:id="@+id/navigation_home"
@@ -12,7 +17,9 @@
         tools:layout="@layout/fragment_first">
         <action
             android:id="@+id/action_navigation_home_to_createMemoryFragment"
-            app:destination="@id/createMemoryFragment" />
+            app:destination="@id/createMemoryFragment"
+            app:enterAnim="@anim/fab_open"
+            app:exitAnim="@anim/fab_close" />
     </fragment>
     <fragment
         android:id="@+id/navigation_memory"
@@ -21,7 +28,9 @@
         tools:layout="@layout/fragment_second">
         <action
             android:id="@+id/action_navigation_memory_to_createMemoryFragment"
-            app:destination="@id/createMemoryFragment" />
+            app:destination="@id/createMemoryFragment"
+            app:enterAnim="@anim/fab_open"
+            app:exitAnim="@anim/fab_close"/>
     </fragment>
     <fragment
         android:id="@+id/navigation_diary"

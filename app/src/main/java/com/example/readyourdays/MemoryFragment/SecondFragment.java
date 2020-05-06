@@ -43,6 +43,8 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
 
     }
 
+
+
     private void iniComponents(View view) {
         addNewMemo = view.findViewById(R.id.add_mem_btn);
 

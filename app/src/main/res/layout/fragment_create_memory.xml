@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:id="@+id/display_memory_layout"
+        android:layout_marginBottom="40dp"
         android:background="@color/colorAccent">
 
         <ImageButton
@@ -18,7 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_backspace_white_24dp" />
+            android:background="@color/colorAccent"
+            android:paddingLeft="16dp"
+            android:src="@drawable/ic_chevron_left_white_24dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,13 +30,103 @@
             android:gravity="center_vertical"
             android:layout_toRightOf="@+id/back_btn"
             android:paddingLeft="16dp"
-            android:text="Add new event"
+            android:text="add new event"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            android:textSize="24sp"
+            android:textSize="18sp"
             tools:igore = "RtSymmetry"/>
 
+        <ImageButton
+            android:id="@+id/save_top_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/colorAccent"
+            android:paddingRight="16dp"
+
+            android:src="@drawable/ic_ok" />
 
     </RelativeLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+       <ImageView
+
+           android:layout_width="20dp"
+           android:layout_height="36dp"
+           android:layout_marginLeft="45dp"
+        android:layout_gravity="center"
+           android:layout_marginRight="10dp"
+           android:src="@drawable/icon_title"
+           />
+
+
+        <EditText
+            android:id="@+id/memo_title"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+
+            android:background="@drawable/textview_style"
+            android:hint="Enter title for the event" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+
+            android:layout_width="20dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_today_white_24dp"
+            android:tint="@color/colorAccent"
+            />
+
+
+        <TextView
+            android:id="@+id/memo_date"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:textSize="17sp"
+            android:background="@drawable/textview_style"
+             />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/memo_select_date"
+
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="select date"
+        android:background="@drawable/textview_style"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        />
+
+    <Button
+        android:id="@+id/memo_save_bottom_btn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="save"
+        android:background="@drawable/textview_style"
+        android:layout_marginTop="350dp"
+        android:layout_gravity="center"
+        />
+
+
+
+    </LinearLayout>
