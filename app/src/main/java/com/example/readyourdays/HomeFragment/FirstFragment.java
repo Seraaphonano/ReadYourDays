@@ -39,7 +39,7 @@ public class FirstFragment extends BaseFragment implements
     //specify the components we need
         private TextView displayYear;  //Year on top
         private TextView displayMonth; // Month on top
-        private CalendarView calendarView; //calendar isself
+        private CalendarView calendarView; //calendar itself
         private TextView lunarTextView;
         private RelativeLayout relativeLayout;
         private Calendar calendar;
@@ -55,7 +55,8 @@ public class FirstFragment extends BaseFragment implements
         private Animation openAnimation , closeAnimation;
         private OvershootInterpolator interpolator = new OvershootInterpolator();
         private Context mcontext;
-        private Fragment newMemoryFragment = new CreateMemoryFragment();
+
+
 
 
 
@@ -238,6 +239,7 @@ public class FirstFragment extends BaseFragment implements
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Override
     public void onCalendarSelect(Calendar calendar, boolean isClick) {
         displayYear.setVisibility(View.VISIBLE);
@@ -255,8 +257,8 @@ public class FirstFragment extends BaseFragment implements
         lunarTextView.setText(lunaInfo);
         //costumize snackbar for displaying lunar dates in English
 
-    }
 
+    }
 
             @Override
     public void onYearChange(int year) {

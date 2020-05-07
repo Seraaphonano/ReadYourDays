@@ -1,94 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="350dp"
-    android:layout_height="550dp"
-    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
     android:layout_gravity="center"
     >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:id="@+id/display_year_layout"
-        android:background="@color/colorAccent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/display_year"
-            android:gravity="center_vertical"
-            android:paddingLeft="16dp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            tools:igore = "RtSymmetry"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/display_month"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:layout_toRightOf="@+id/display_year"
-            tools:igore = "RelativeOverlap"/>
-
-
-    </RelativeLayout>
-
-    <com.haibin.calendarview.CalendarLayout
-        android:id="@+id/calendarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="540dp"
         android:orientation="vertical"
-        app:calendar_content_view_id="@+id/recyclerView"
-        app:default_status="expand" >
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
 
-    <com.haibin.calendarview.CalendarView
-        android:id="@+id/gCalendar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:calendar_padding="15dp"
-        app:current_day_lunar_text_color="#333333"
-        app:current_day_text_color="@color/colorAccent"
-        app:current_month_lunar_text_color="#333333"
-        app:current_month_text_color="#333333"
-        app:day_text_size="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:max_year="2021"
-        app:min_year="1949"
-        app:scheme_text_color="#333333"
-        app:scheme_lunar_text_color="#333333"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:id="@+id/display_year_layout"
+            android:background="@color/colorAccent">
 
-        app:other_month_text_color="#e1e1e1"
-        app:selected_lunar_text_color="#ffffff"
-        app:selected_text_color="#ffffff"
-        app:selected_theme_color="@color/colorPrimaryDark"
-        app:week_background="@color/colorAccent"
-        app:week_text_color="#ffffff"
-        app:scheme_text="Holiday"
-        app:week_text_size="18dp"
-        app:week_view_scrollable="true"
-        app:year_view_day_text_color="#333333"
-        app:month_view="com.example.readyourdays.Base.CalenMonthView"
-        tools:layout_editor_absoluteX="0dp" />
-        <Button
-            android:id="@+id/pop_select_date"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:text="select date"
-            android:background="@drawable/textview_style"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/display_date"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="2020 April"
+                tools:igore = "RtSymmetry"/>
 
-    </com.haibin.calendarview.CalendarLayout>
+            <ImageView
+                android:id="@+id/moon_icon"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/moon"
+                android:layout_centerInParent="true"
 
-</LinearLayout>
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/display_lunar_date"
+                android:gravity="center_vertical"
+
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:paddingRight="12dp"
+                android:layout_alignParentRight="true"
+                android:textSize="18sp"
+                android:text="September 10"
+
+                tools:igore = "RelativeOverlap"/>
+
+
+        </RelativeLayout>
+        <com.haibin.calendarview.CalendarLayout
+            android:id="@+id/calendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:calendar_content_view_id="@+id/recyclerView"
+            app:default_status="expand" >
+
+            <com.haibin.calendarview.CalendarView
+                android:id="@+id/gCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:calendar_padding="15dp"
+                app:current_day_lunar_text_color="#333333"
+                app:current_day_text_color="@color/colorAccent"
+                app:current_month_lunar_text_color="#333333"
+                app:current_month_text_color="#333333"
+                app:day_text_size="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:max_year="2021"
+                app:min_year="1949"
+                app:scheme_text_color="#333333"
+                app:scheme_lunar_text_color="#333333"
+
+                app:other_month_text_color="#e1e1e1"
+                app:selected_lunar_text_color="#ffffff"
+                app:selected_text_color="#ffffff"
+                app:selected_theme_color="@color/colorPrimaryDark"
+                app:week_background="@color/colorAccent"
+                app:week_text_color="#ffffff"
+                app:scheme_text="Holiday"
+                app:week_text_size="18dp"
+                app:week_view_scrollable="true"
+                app:year_view_day_text_color="#333333"
+                app:month_view="com.example.readyourdays.Base.CalenMonthView"
+                tools:layout_editor_absoluteX="0dp" />
+            <Button
+                android:id="@+id/pop_select_date"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="select date"
+                android:background="@drawable/textview_style"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                />
+
+        </com.haibin.calendarview.CalendarLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

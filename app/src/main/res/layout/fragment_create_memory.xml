@@ -53,7 +53,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+      >
 
        <ImageView
 
@@ -68,12 +69,13 @@
 
         <EditText
             android:id="@+id/memo_title"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="36dp"
             android:layout_gravity="center"
-
+            android:maxLength="24"
             android:background="@drawable/textview_style"
-            android:hint="Enter title for the event" />
+            android:hint="Blank Title"
+            />
 
     </LinearLayout>
 
@@ -97,7 +99,7 @@
 
         <TextView
             android:id="@+id/memo_date"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="36dp"
             android:layout_gravity="center"
             android:textSize="17sp"
@@ -108,7 +110,8 @@
 
     <Button
         android:id="@+id/memo_select_date"
-
+        android:clickable="true"
+        android:onClick="showPopup"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="select date"
