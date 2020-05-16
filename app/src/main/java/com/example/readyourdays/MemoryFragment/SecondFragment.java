@@ -10,14 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import com.example.readyourdays.Base.BaseFragment;
+import com.example.readyourdays.DiaryDatabase;
 import com.example.readyourdays.HomeFragment.FirstFragment;
 import com.example.readyourdays.R;
 import com.example.readyourdays.RecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SecondFragment extends BaseFragment implements View.OnClickListener {
 
@@ -25,7 +30,7 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
     private RecyclerView.Adapter adapter;
     private FloatingActionButton addNewMemo;
     private Context mcontext;
-    private ArrayList<String> Memories;
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -58,13 +63,15 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
 
 
     private void iniComponents(View view) {
-        Memories = new ArrayList<>();
 
-        for (int i =0; i <100; i++ ){
-            Memories.add(i + " Topic");
-        }
         addNewMemo = view.findViewById(R.id.add_mem_btn);
         displayMomery = view.findViewById(R.id.memo_receyclerview);
+
+        DiaryDatabase db = Room.databaseBuilder(mcontext.getApplicationContext(), DiaryDatabase.class, "Production")
+                .allowMainThreadQueries()
+                .build();
+
+        List<Diary> Memories = db.diaryDao().getAllDiaries();
         displayMomery.setLayoutManager(new LinearLayoutManager(mcontext));
         adapter = new RecyclerAdapter(Memories);
         displayMomery.setAdapter(adapter);

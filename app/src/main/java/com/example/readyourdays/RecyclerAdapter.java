@@ -8,12 +8,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.readyourdays.MemoryFragment.Diary;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-   ArrayList<String> memories;
-    public RecyclerAdapter(ArrayList<String> memories) {
+   List<Diary> memories;
+    public RecyclerAdapter(List<Diary> memories) {
         this.memories = memories;
     }
 
@@ -26,7 +29,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
-        holder.title.setText(memories.get(position));
+        holder.title.setText(memories.get(position).getTitle());
+        holder.daysLeft.setText(memories.get(position).getSelectedDay());
     }
 
     @Override
@@ -37,11 +41,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-
+        public  TextView daysLeft;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
            title = itemView.findViewById(R.id.card_title_memo);
-           // itemView.findViewById(R.id.card__days_countinng);
+            daysLeft = itemView.findViewById(R.id.card__days_countinng);
 
         }
     }
